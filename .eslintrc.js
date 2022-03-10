@@ -9,7 +9,7 @@ module.exports = {
   ],
   plugins: ['import'],
   rules: {
-    'no-console': ['error', { allow: ['error', 'debug'] }],
+    // 'no-console': ['error', { allow: ['error', 'debug'] }],
     // Import:
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
     'import/named': 2,
@@ -50,8 +50,7 @@ module.exports = {
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: {
-          order:
-            'asc' /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
+          order: 'asc' /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
           caseInsensitive: true /* ignore case. Options: [true, false] */,
         },
       },

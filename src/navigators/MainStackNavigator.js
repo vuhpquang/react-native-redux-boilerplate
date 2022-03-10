@@ -1,7 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { MainMenuScreen, MovieListScreen, TodoListScreen } from '../screens';
-import { useColorModeValue } from 'native-base';
+import { MainMenuScreen, MovieListScreen } from '../screens';
 
 const MainStack = createNativeStackNavigator();
 
@@ -9,24 +8,17 @@ export function MainStackNavigator() {
   return (
     <MainStack.Navigator
       screenOptions={{
-        headerTintColor: useColorModeValue('#1f2937', '#fafaf9'),
+        headerTintColor: '#1f2937',
         headerStyle: {
-          backgroundColor: useColorModeValue("#fafaf9", "#111827"),
+          backgroundColor: '#fafaf9',
         },
-        animation: "slide_from_right",
+        animation: 'slide_from_right',
       }}>
       <MainStack.Screen
         name={'MainMenu'}
         component={MainMenuScreen}
         options={{
           title: 'Main Menu',
-        }}
-      />
-      <MainStack.Screen
-        name={'TodoList'}
-        component={TodoListScreen}
-        options={{
-          title: 'Todo List',
         }}
       />
       <MainStack.Screen

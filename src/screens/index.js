@@ -1,9 +1,4 @@
-import MovieListScreen from "./MovieListScreen";
-import TodoListScreen from "./TodoListScreen";
-import MainMenuScreen from "./MainMenuScreen";
+import MainMenuScreen from './MainMenuScreen';
+import MovieListScreen from './MovieListScreen';
 
-export {
-  MovieListScreen,
-  TodoListScreen,
-  MainMenuScreen,
-}
+export { MovieListScreen, MainMenuScreen };

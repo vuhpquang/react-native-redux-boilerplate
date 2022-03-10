@@ -33,7 +33,7 @@
 <h3 align="center">React Native Zustand Boilerplate</h3>
 
   <p align="center">
-    A React Native Boilerplate using zustand, immer, react-navigation, native-base
+    A React Native Boilerplate using zustand, immer, react-navigation,
     <br />
     <a href="https://github.com/vuhpquang/react-native-zustand-boilerplate/docs"><strong>Explore the docs »</strong></a>
     <br />
