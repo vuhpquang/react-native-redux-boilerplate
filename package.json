@@ -9,6 +9,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "podinstall": "cd ios && pod install && cd ..",
+    "installdebug": "cd android && ./gradlew installDebug && cd ..",
     "lint": "eslint ."
   },
   "dependencies": {
