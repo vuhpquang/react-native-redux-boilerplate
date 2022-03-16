@@ -1,1 +1,3 @@
-export const BASE_URL = 'http://localhost:1337';
+import appUrl from './appUrl';
+
+export { appUrl };

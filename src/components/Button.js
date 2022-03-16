@@ -1,14 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Button as NBButton } from 'native-base';
 
-const Button = ({ text = '', onPress = () => { }, colorScheme = 'primary', ...props }) => {
-  return (
-    <TouchableOpacity onPress={onPress} {...props}>
-      <Text style={ }>{text}</Text>
-    </TouchableOpacity>
-  );
+const Button = ({ children, ...props }) => {
+  return <NBButton {...props}>{children}</NBButton>;
 };
 
 export default Button;
-
-const styles = StyleSheet.create({});

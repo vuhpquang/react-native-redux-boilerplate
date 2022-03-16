@@ -1,34 +1,56 @@
-// In App.js in a new project
+/**
+ * React Native App
+ * Everything starts from the Entry-point
+ */
+import React from 'react';
+import { extendTheme, NativeBaseProvider } from 'native-base';
+import { ActivityIndicator } from 'react-native';
+import { Provider, useSelector } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { CombinedDefaultTheme, CombinedDarkTheme } from 'src/config/theme-config';
+import { FullStackNavigator as Navigation } from 'navigation';
+import configureStore from 'store';
 
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { MainStackNavigator } from './src/navigators/MainStackNavigator';
+const { persistor, store } = configureStore();
 
-const RootStack = createNativeStackNavigator();
+const nativeBaseTheme = extendTheme({
+  colors: {
+    // Add new color
+    primary: {
+      50: '#E3F2F9',
+      100: '#C5E4F3',
+      200: '#A2D4EC',
+      300: '#7AC1E4',
+      400: '#47A9DA',
+      500: '#0088CC',
+      600: '#007AB8',
+      700: '#006BA1',
+      800: '#005885',
+      900: '#003F5E',
+    },
+    // Redefinig only one shade, rest of the color will remain same.
+    amber: {
+      400: '#d97706',
+    },
+  },
+  config: {
+    // Changing initialColorMode to 'dark'
+    initialColorMode: 'dark',
+  },
+});
 
 function App() {
-  function renderScreens() {
-    // if (loading) {
-    //   return <RootStack.Screen name={'Splash'} component={SplashScreen} />;
-    // }
-    // return user ? (
-    //   <RootStack.Screen name={'MainStack'} component={MainStackNavigator} />
-    // ) : (
-    //   <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
-    // );
-    return <RootStack.Screen name="MainStack" component={MainStackNavigator} />;
-  }
-
+  // const isDark = useSelector(state => state.themeReducer.isDark);
+  const isDark = true;
+  const combinedTheme = isDark ? CombinedDarkTheme : CombinedDefaultTheme;
   return (
-    <NavigationContainer>
-      <RootStack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        {renderScreens()}
-      </RootStack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
+        <NativeBaseProvider theme={nativeBaseTheme}>
+          <Navigation theme={combinedTheme} />
+        </NativeBaseProvider>
+      </PersistGate>
+    </Provider>
   );
 }
 

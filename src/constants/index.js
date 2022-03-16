@@ -1,37 +1,4 @@
-import borderWidths from './borders';
-import breakpoints from './breakpoints';
-import colors from './colors';
-import opacity from './opacity';
-import radii from './radius';
-import shadows from './shadows';
-import sizes from './sizes';
-import { spacing } from './space';
-import typography from './typography';
+import * as theme from './theme';
 
-const theme = {
-  borderWidths,
-  breakpoints,
-  colors,
-  radii,
-  ...typography,
-  sizes,
-  space: spacing,
-  shadows,
-  opacity,
-};
-
-export const themePropertyMap = {
-  borderRadius: 'radii',
-  color: 'colors',
-  letterSpacing: 'letterSpacings',
-  lineHeight: 'lineHeights',
-  fontFamily: 'fonts',
-  fontSize: 'fontSizes',
-  fontWeight: 'fontWeights',
-  size: 'sizes',
-  space: 'space',
-  border: 'borders',
-  shadow: 'shadows',
-};
-
-export default theme;
+export const HTTP_STATUS_CODE = { OK: 200, NOT_FOUND: 404, FORBIDEN: 500 };
+export const THEME = theme;

@@ -8,6 +8,7 @@ module.exports = {
     'plugin:import/warnings',
   ],
   plugins: ['import'],
+  parser: 'babel-eslint',
   rules: {
     // 'no-console': ['error', { allow: ['error', 'debug'] }],
     // Import:
@@ -60,6 +61,9 @@ module.exports = {
   settings: {
     'import/resolver': {
       'babel-module': {},
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
     'import/ignore': ['react-native'],
   },
